@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <button type="primary" bindtap="navigateToCustomMap">跳转到地图页面</button>
+      <button type="primary" bindtap="TestLoginHandler">测试登入函数</button>
+      <button open-type="getUserInfo">测试授权</button>
+      <button type="primary" bindtap="TestOpenSettingHandler">测试openSetting函数</button>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取用户手机号</button>
+      <button type="primary" bindtap="TeststartSoterAuthentication">测试startSoterAuthentication</button>
+      <button open-type="contact" bindcontact="handleContact">测试客服消息</button>
+      <navigator target="miniProgram" app-id="wxeb490c6f9b154ef9">会员卡开卡</navigator>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+    <my-component prop-a="dataFieldA1" prop-b="dataFieldB1" my-class="">
+      <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+      <view>这里是插入到组件slot中的内容</view> 
+    </my-component>
+  </view>
+</view>
